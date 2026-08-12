@@ -103,7 +103,7 @@ function QuoteCalculator(data) {
   let adult_count = 1;
   let warnings = [];
   let app_2 = 0;
-  if (data.app1_hch === "No") {
+  if (data.hos_cl !== "None" && data.app1_hch === "No") {
     if (data.app1_age > 30) {
       app_1 = (data.app1_age - 30) * 0.02;
     }
