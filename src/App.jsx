@@ -70,7 +70,7 @@ export default function App() {
 
   const fetchQuotes = async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/quote');
+      const res = await fetch('/api/quote');
       const data = await res.json();
       setQuotes(data);
     } catch (err) {
@@ -110,7 +110,7 @@ export default function App() {
       return;
     }
 
-    const url = editingId ? `http://localhost:3001/api/quote/${editingId}` : 'http://localhost:3001/api/quote';
+    const url = editingId ? `/api/quote/${editingId}` : '/api/quote';
     const method = editingId ? 'PUT' : 'POST';
 
     try {
@@ -149,7 +149,7 @@ export default function App() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this quote?")) return;
     try {
-      const res = await fetch(`http://localhost:3001/api/quote/${id}`, { method: 'DELETE' });
+      const res = await fetch(`/api/quote/${id}`, { method: 'DELETE' });
       if (res.ok) {
         fetchQuotes();
         if (selectedQuoteDetail?.id === id) setSelectedQuoteDetail(null);
@@ -178,7 +178,7 @@ export default function App() {
 
   const handleViewDetail = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3001/api/quote/${id}`);
+      const res = await fetch(`/api/quote/${id}`);
       const data = await res.json();
       setSelectedQuoteDetail(data);
     } catch (err) {
