@@ -1,74 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root {
+  --navy: #0F2E3D;
+  --navy-light: #1D4A5F;
+  --teal: #0E8878;
+  --teal-dark: #0A6659;
+  --paper: #FFFFFF;
+  --bg: #EEF3F3;
+  --line: #DDE6E6;
+  --ink: #16262B;
+  --ink-soft: #5C7076;
+  --amber: #B8862E;
+  --red: #B3413A;
+  --red-bg: #FBEBE9;
+}
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
-  padding: 20px;
-  background: #f4f6f9;
+  padding: 32px 20px;
+  background:
+    radial-gradient(1200px 400px at 50% -10%, rgba(14,136,120,0.06), transparent),
+    var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
 }
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: var(--paper);
+  padding: 0;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(15,46,61,0.04), 0 12px 32px -16px rgba(15,46,61,0.18);
+  overflow: hidden;
 }
 
+/* ---------- Header band ---------- */
+.container > h2 {
+  margin: 0;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: #EAF3F1;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+.container > h2::after {
+  content: "Private Health Cover Quote Simulator";
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #8FC4B9;
+  margin-top: 6px;
+}
+
+.error {
+  background: var(--red-bg);
+  color: var(--red);
+  padding: 12px 32px;
+  margin: 20px 32px -8px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(179,65,58,0.25);
+}
+
+/* ---------- Form ---------- */
 form {
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 6px;
-  margin-bottom: 20px;
+  background: var(--paper);
+  padding: 28px 32px 24px;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+form > h3,
+h3 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--teal);
+  display: inline-block;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 16px 20px;
+}
+
+.grid > div label,
+form > div > label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 5px;
 }
 
 input, select, textarea {
   width: 100%;
-  padding: 8px;
-  margin-top: 4px;
+  padding: 9px 11px;
+  margin-top: 2px;
   box-sizing: border-box;
+  border: 1.5px solid var(--line);
+  border-radius: 7px;
+  background: #FBFDFD;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+input:hover, select:hover, textarea:hover {
+  border-color: #B7CBC9;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14,136,120,0.14);
+}
+
+textarea {
+  min-height: 64px;
+  resize: vertical;
+}
+
+/* ---------- Buttons ---------- */
 button {
-  padding: 8px 15px;
+  padding: 9px 18px;
   cursor: pointer;
   border: none;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 0.86rem;
+  font-family: 'Inter', sans-serif;
+  transition: transform 0.08s ease, filter 0.15s ease;
 }
+button:hover { filter: brightness(1.06); }
+button:active { transform: translateY(1px); }
 
-.btn-primary { background: #007BFF; color: white; }
-.btn-warning { background: #ffc107; }
-.btn-danger { background: #dc3545; color: white; }
-.btn-info { background: #17a2b8; color: white; }
-.btn-secondary { background: #6c757d; color: white; }
+.btn-primary { background: var(--teal); color: white; }
+.btn-primary:hover { background: var(--teal-dark); }
+.btn-secondary { background: transparent; color: var(--ink-soft); border: 1.5px solid var(--line); }
+.btn-warning { background: #F6E7C8; color: #6B4E10; }
+.btn-danger { background: transparent; color: var(--red); border: 1.5px solid rgba(179,65,58,0.35); }
+.btn-danger:hover { background: var(--red-bg); }
+.btn-info { background: var(--navy); color: #EAF3F1; }
+.btn-info:hover { background: var(--navy-light); }
 
+/* ---------- Table ---------- */
 table {
-  width: 100%;
+  width: calc(100% - 64px);
+  margin: 24px 32px 28px;
   border-collapse: collapse;
-  margin-top: 10px;
+  font-size: 0.9rem;
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 14px;
   text-align: left;
 }
 
 th {
-  background: #f1f1f1;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-bottom: 2px solid var(--navy);
 }
 
-.error {
-  background: #ffdddd;
-  color: red;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  font-weight: bold;
+tbody tr:hover { background: #F5FAF9; }
+tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- Quote detail: styled like an insurance statement ---------- */
+.container > div[style] {
+  background: var(--bg) !important;
+  margin: 0 32px 32px !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.container > div[style] > h3 {
+  margin: 0;
+  padding: 16px 24px;
+  background: var(--navy);
+  color: #EAF3F1;
+  border-bottom: none;
+  display: block;
+  font-size: 1rem;
+}
+
+.container > div[style] > p {
+  padding: 0 24px;
+  margin: 10px 0;
+  font-size: 0.92rem;
+}
+.container > div[style] > p:first-of-type { margin-top: 16px; }
+
+.container > div[style] > div[style] {
+  background: var(--paper) !important;
+  margin: 16px 24px 24px !important;
+  padding: 20px 22px !important;
+  border-radius: 10px !important;
+  border-left: 4px solid var(--teal);
+  box-shadow: 0 1px 3px rgba(15,46,61,0.06);
+}
+
+.container > div[style] > div[style] h4 {
+  font-family: 'Source Serif 4', Georgia, serif;
+  color: var(--navy) !important;
+  font-size: 1rem;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 12px !important;
+}
+
+.container > div[style] > div[style] p {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px 0;
+  margin: 0;
+  font-size: 0.9rem;
+  border-bottom: 1px dotted #E7EDEC;
+}
+
+.container > div[style] > div[style] strong {
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+/* money & percentage values render in a statement-style monospace */
+.container > div[style] > div[style] p:has(strong:first-child) {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.container > div[style] > div[style] em {
+  display: block;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  padding: 10px 0 4px;
+  border-bottom: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.container > div[style] > div[style] p[style*="color"] {
+  display: block;
+  color: var(--red) !important;
+  background: var(--red-bg);
+  padding: 10px 12px;
+  border-radius: 7px;
+  margin: 10px 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-bottom: none;
+}
+
+.container > div[style] > div[style] p[style*="whiteSpace"],
+.container > div[style] > div[style] p[style*="pre-line"] {
+  display: block;
+  white-space: pre-line;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  background: #FBFDFD;
+  padding: 12px 14px;
+  border-radius: 7px;
+  margin-top: 10px;
+  border-bottom: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  form, .container > h2, table, .container > div[style] { margin-left: 16px; margin-right: 16px; }
+  table { width: calc(100% - 32px); }
 }
