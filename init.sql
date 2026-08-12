@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS hcs;
 
-CREATE TABLE quotes (
+CREATE TABLE hcs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     customer_name TEXT NOT NULL,
     cover_type TEXT NOT NULL CHECK (cover_type IN ('Single', 'Couple', 'Family')),
