@@ -118,7 +118,7 @@ function QuoteCalculator(data) {
   let LHC_total = LHC;
   if (data.cover_type === "Couple" || data.cover_type === "Family") {
     adult_count = 2;
-    if (data.app2_hch === "No") {
+    if (data.hos_cl !== "None" && data.app2_hch === "No") {
       if (data.app2_age > 30) {
         app_2 = (data.app2_age - 30) * 0.02;
       }
