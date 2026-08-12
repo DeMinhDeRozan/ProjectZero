@@ -1,6 +1,12 @@
 # Health Cover Simulator
 
+
 A full-stack CRUD web application simulating a private health insurance quote system. Users can create, read, update, and delete quote records. Each quote is calculated from cover type, hospital/extras tiers, applicant ages, Lifetime Health Cover (LHC) loading, the family upgrade fee, and the annual-payment discount.
+
+## URL: 
+```bash
+   https://github.com/DeMinhDeRozan/ProjectZero
+```
 
 ---
 
@@ -148,4 +154,4 @@ Frontend (`App.jsx`) and backend (`server.js`) both run the same `checkQuoteData
 
 ## Known Limitation
 
-The API has no authentication or authorization layer — any client can call the `POST`, `PUT`, and `DELETE` endpoints directly without logging in, meaning anyone with the API URL can create, edit, or delete quotes. In a real-world deployment, these endpoints would need to be protected (e.g. with sessions, JWT, or API keys) to prevent unauthorized access to or tampering with customer quote data.
+The API has no authentication or authorization layer — any client can call the `POST`, `PUT`, and `DELETE` endpoints directly without logging in, meaning anyone with the API URL can create, edit, or delete quotes. In practice, these endpoints need to be protected to prevent unauthorized access to sensitive data.
