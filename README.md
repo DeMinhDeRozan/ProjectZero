@@ -146,7 +146,7 @@ Frontend (`App.jsx`) and backend (`server.js`) both run the same `checkQuoteData
 ## AI Use Statement
 
 - **Tool used:** Claude / Gemini
-- **What it helped with:** Explaining Node's built-in `node:sqlite` API, debugging Express route/CORS setup, and reviewing/wording this README.
+- **What it helped with:** Explaining Node's built-in `node:sqlite` API, debugging Express route/CORS setup, and reviewing this README.
 - **What I personally checked/implemented:** I wrote and tested the `QuoteCalculator()` pricing logic myself and manually verified it by writing it down to paper  before relying on it. I also implemented and tested all CRUD endpoints and the React form/validation logic myself.
 - **One decision I made myself:** Choosing to calculate the quote breakdown at read-time (`GET /api/quote/:id`) rather than storing the calculated premium in the database, so pricing logic lives in a single place and always reflects the current rules — even if a quote's raw inputs are edited later.
 
@@ -154,4 +154,4 @@ Frontend (`App.jsx`) and backend (`server.js`) both run the same `checkQuoteData
 
 ## Known Limitation
 
-The API has no authentication or authorization layer — any client can call the `POST`, `PUT`, and `DELETE` endpoints directly without logging in, meaning anyone with the API URL can create, edit, or delete quotes. In practice, these endpoints need to be protected to prevent unauthorized access to sensitive data.
+The API has no authentication or authorization layer — any client can call the `POST`, `PUT`, and `DELETE` endpoints directly without logging in, meaning anyone with the API URL can create, edit, or delete quotes. In practice, these endpoints need to be protected to prevent unauthorized access to sensitive data. I suggest using JWT.
