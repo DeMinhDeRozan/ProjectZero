@@ -178,11 +178,11 @@ function QuoteCalculator(data) {
 
     ...(adult_count > 1
       ? {
-          "Applicant 1 LHC Loading": app_1 * 100 + "%",
-          "Applicant 2 LHC Loading": app_2 * 100 + "%",
+          "Applicant 1 LHC Loading": (app_1 * 100).toFixed(2) + "%",
+          "Applicant 2 LHC Loading": (app_2 * 100).toFixed(2) + "%",
         }
       : {
-          "Applicant LHC Loading": app_1 * 100 + "%",
+          "Applicant LHC Loading": (app_1 * 100).toFixed(2) + "%",
         }),
 
     ...(data.cover_type === "Family" && {
