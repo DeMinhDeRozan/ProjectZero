@@ -188,7 +188,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h2>Health Cover System (HCS) - Dashboard</h2>
+      <h2>Health Cover System</h2>
 
       {errorMsg && <div className="error">{errorMsg}</div>}
 
