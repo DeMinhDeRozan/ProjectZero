@@ -363,7 +363,7 @@ export default function App() {
               )}
               <p><em>{selectedQuoteDetail.price["Lifetime Health Cover Statement"]}</em></p>
               <p style={{ color: '#d9534f' }}><strong>Warnings:</strong> {selectedQuoteDetail.price["Warnings"]}</p>
-              <p><strong>Explanation:</strong> {selectedQuoteDetail.price["Explanation"]}</p>
+              <p style={{ whiteSpace: 'pre-line' }}><strong>Explanation:</strong> <br />{selectedQuoteDetail.price["Explanation"]} </p>
             </div>
           )}
         </div>
