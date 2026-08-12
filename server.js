@@ -25,7 +25,8 @@ hos_cl TEXT NOT NULL CHECK (hos_cl IN ('None', 'Basic', 'Bronze', 'Silver', 'Gol
 ext_cl TEXT NOT NULL CHECK (ext_cl IN ('None', 'Basic', 'Standard', 'Premium')),
 pay_freq TEXT NOT NULL CHECK (pay_freq IN ('Monthly', 'Yearly')),
 ann_discount REAL NOT NULL DEFAULT 0 CHECK (ann_discount >= 0 and ann_discount<=10),
-notes TEXT
+notes TEXT,
+created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )
 `;
 db.exec(sql);
